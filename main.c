@@ -287,6 +287,24 @@ void enviar_informacion_hijos(int columna, struct pipe arrPipes_padre_hijo[], in
 
 }
 
+void leer_matriz(int columna, int filas, FILE *fp, char game[][columna+1]){ 
+	char buff[255];
+	char aux[columna+1];
+	for(int i = 0; i < filas; i++){
+		int cont =0;
+		fgets(buff, 255, (FILE*)fp);
+		for(int j = 0; j< (strlen (buff)-1); j++){
+			if(buff[j] != ' '){
+				aux[cont] = buff[j];
+				cont++;
+			}
+		}
+		strcpy(game[i], aux);
+
+	}
+
+}
+
 void actualizar_matriz(int columna, char game[][columna+1], char game_aux[][columna+1], int fila){
 	for(int i = 0; i < fila; i++){
 		strcpy(game[i], game_aux[i]);
@@ -308,15 +326,30 @@ void mostrar_matriz(int columna, char game[][columna+1], int fila){
 
 int main(int argc, char const *argv[]){
 
-	int filas = 20;
-	int columnas = 20;
+	FILE *fp;
+   	char buff[255];
+   	fp = fopen("/home/daniel/Desktop/Proyecto/mundo.txt", "r");
+
+   	fgets(buff, 255, (FILE*)fp);
+	int filas = atoi(buff);
+
+	fgets(buff, 255, (FILE*)fp);
+	int columnas = atoi(buff);
+
+	char game[filas][columnas+1];
+
+	leer_matriz(columnas, filas, fp, game);
+	fclose(fp);
+
+	//mostrar_matriz(columnas, game, filas);
+	
 	int n = 5;
 	int m = filas/n;
 	int turno[n];
-	char game[filas][columnas+1];
+	
 	int i = 0;
 
-	int num_gen = 20;
+	int num_gen = 10;
 
 
 
@@ -325,7 +358,7 @@ int main(int argc, char const *argv[]){
 	 
     
 
-
+/*
 	strcpy(game[0], "00000000000000000000");
 	strcpy(game[1], "00000000000000000000");
 	strcpy(game[2], "00000000000000000000");
@@ -348,7 +381,7 @@ int main(int argc, char const *argv[]){
 	strcpy(game[19], "00000000000000000000");
 
 	//mostrar_matriz(columnas, game, filas);
-
+*/
 
 	char game_aux[filas][columnas+1];
 

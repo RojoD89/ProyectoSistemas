@@ -1,8 +1,10 @@
+#define _POSIX_C_SOURCE 199309L
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/types.h>
 #include <unistd.h>
 #include <sys/wait.h>
+#include <time.h>
 #include <string.h>
 #include "../include/logicprocess.h"
 #include "../include/logicjuego.h"
@@ -15,7 +17,7 @@
 #define ANSI_BOLD "\e[1;37m"
 #define ANSI_UNDERLINE "\e[4;37m"
 
-
+struct timespec ts = {0, 500000000L};
 
 void leer_matriz(int columna, int filas, FILE *fp, char game[][columna+1]){ 
 	char buff[255];
@@ -120,6 +122,8 @@ int main(int argc, char const *argv[]){
 
 		crear_procesos(columnas, filas, arrPipes_padre_hijo, arrPipes_hijo_padre, arrPipes_abajo, arrPipes_arriba, n, m, turno, num_gen);
 
+		
+
 		system("clear");
 		printf(ANSI_BOLD ANSI_UNDERLINE "CONWAY'S JUEGO DE LA VIDA\n" ANSI_COLOR_RESET);
 		printf("\n");
@@ -159,7 +163,7 @@ int main(int argc, char const *argv[]){
 				printf("\n");
 				printf("Generación número: ");
 				printf(ANSI_BOLD "%d\n" ANSI_COLOR_RESET ,p);
-				sleep(1);		
+				nanosleep (&ts, NULL);		
 			}
 			p++;
 			

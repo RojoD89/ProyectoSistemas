@@ -15,10 +15,13 @@ Instrucciones:
 	./juego <n_procesos>  <n_generaciones> <n_visualizacion> <archivo>
 
 - En el directorio src se encuentra una carpeta llamada mundos, en ella se proporcionan distintos mundos de pruebas.
-- Un ejemplo completo de la invocacion seria:
+- Un ejemplo completo de la invocación seria:
 	./juego 10 50 1 ./mundos/pulsar.txt
 
 - Dentro de la carpta Proyecto se encuentra un archivo con los links a las páginas de internet que se utilizaron como 
 referencia para este proyecto.	
 
 SE 	RECOMIENDA UTILIZAR LA TERMINAL EN PANTALLA COMPLETA PARA UNA CORRECTA VISUALIZACION DEL JUEGO
+
+Link al repositorio de este proyecto: 
+https://github.com/RojoD89/ProyectoSistemas

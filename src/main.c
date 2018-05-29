@@ -144,6 +144,13 @@ int main(int argc, char const *argv[]){
 		printf(ANSI_BOLD "%d" ANSI_COLOR_RESET ,num_visualizacion);
 		printf(" Genereciones\n");
 		printf("\n");
+		printf("Leyenda: \n");
+		printf(ANSI_BGR_COLOR_WHITE ANSI_COLOR_WHITE     "%*c"     ANSI_COLOR_RESET ,2, '*');
+		printf(" Célula muerta\n");
+		printf("\n");
+		printf(ANSI_BGR_COLOR_BLACK ANSI_COLOR_BLACK    "%*c"     ANSI_COLOR_RESET ,2, '*');
+		printf(" Célula viva\n");
+		printf("\n");
 		printf("Presione cualquier tecla para iniciar\n");
 
 		getchar();
@@ -165,6 +172,14 @@ int main(int argc, char const *argv[]){
 				printf("\n");
 				printf("Generación número: ");
 				printf(ANSI_BOLD "%d\n" ANSI_COLOR_RESET ,p);
+				printf("\n");
+				printf("Leyenda: \n");
+				printf(ANSI_BGR_COLOR_WHITE ANSI_COLOR_WHITE     "%*c"     ANSI_COLOR_RESET ,2, '*');
+				printf(" Célula muerta\n");
+				printf("\n");
+				printf(ANSI_BGR_COLOR_BLACK ANSI_COLOR_BLACK    "%*c"     ANSI_COLOR_RESET ,2, '*');
+				printf(" Célula viva\n");
+				printf("\n");
 				nanosleep (&ts, NULL);		
 			}
 			p++;
